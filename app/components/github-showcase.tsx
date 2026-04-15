@@ -29,13 +29,7 @@ export default function GithubShowcase() {
               href={repo.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card-subtle px-3 py-2.5 transition-all duration-200 hover:-translate-y-0.5 group block"
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(255, 105, 0, 0.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "none";
-              }}
+              className="glass-card-subtle px-3 py-2.5 transition-all duration-200 hover:-translate-y-0.5 group block hover:shadow-[0_4px_20px_rgba(255,105,0,0.1)]"
             >
               <div className="flex items-center gap-2">
                 <span className="font-[family-name:var(--font-display)] text-sm font-medium text-[var(--primary)] group-hover:text-[var(--on-surface)] transition-colors">

@@ -53,18 +53,11 @@ export default function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
           title={link.name}
-          className="glass-card-subtle flex items-center justify-center w-11 h-11 text-[var(--on-surface-variant)] transition-all duration-200 hover:-translate-y-0.5"
+          className="glass-card-subtle flex items-center justify-center w-11 h-11 text-[var(--on-surface-variant)] transition-all duration-200 hover:-translate-y-0.5 hover:text-[var(--hover-color)] hover:shadow-[0_4px_20px_var(--hover-shadow)]"
           style={{
-            ["--hover-color" as string]: link.color,
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = link.color;
-            e.currentTarget.style.boxShadow = `0 4px 20px ${link.color}33`;
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "var(--on-surface-variant)";
-            e.currentTarget.style.boxShadow = "none";
-          }}
+            "--hover-color": link.color,
+            "--hover-shadow": `${link.color}33`,
+          } as React.CSSProperties}
         >
           {link.icon}
         </a>

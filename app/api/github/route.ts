@@ -16,7 +16,7 @@ export async function GET() {
         },
         body: JSON.stringify({
           query: `query {
-            user(login: "KemonoNeco") {
+            user(login: "${process.env.GITHUB_USERNAME || "KemonoNeco"}") {
               pinnedItems(first: 4, types: REPOSITORY) {
                 nodes {
                   ... on Repository {
@@ -64,7 +64,7 @@ export async function GET() {
     // Fallback: REST API (no token needed)
     if (!repos) {
       const res = await fetch(
-        "https://api.github.com/users/KemonoNeco/repos?sort=updated&per_page=4",
+        `https://api.github.com/users/${process.env.GITHUB_USERNAME || "KemonoNeco"}/repos?sort=updated&per_page=4`,
         {
           headers: token ? { Authorization: `Bearer ${token}` } : {},
           next: { revalidate: 300 },

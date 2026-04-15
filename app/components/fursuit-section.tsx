@@ -6,16 +6,7 @@ export default function FursuitSection() {
       href="https://www.instagram.com/kemono_neco/"
       target="_blank"
       rel="noopener noreferrer"
-      className="glass-card-subtle flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:-translate-y-0.5 group"
-      style={{
-        boxShadow: "none",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = "0 4px 20px rgba(255, 0, 255, 0.15)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = "none";
-      }}
+      className="glass-card-subtle flex items-center gap-3 px-4 py-3 transition-all duration-200 hover:-translate-y-0.5 group hover:shadow-[0_4px_20px_rgba(255,0,255,0.15)]"
     >
       {/* Instagram icon */}
       <svg

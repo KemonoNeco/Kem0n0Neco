@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+:root {
+  /* === Obsidian Foundation === */
+  --bg: #080808;
+  --surface-lowest: #000000;
+  --surface-low: #0c0c0c;
+  --surface-high: #1a1a1a;
+  --surface-variant: rgba(26, 26, 26, 0.4);
+
+  /* === Neon Riot === */
+  --primary: #ff6900;
+  --primary-container: #cc5400;
+  --secondary: #ff00ff;
+  --tertiary: #00ffff;
+
+  /* === Text === */
+  --on-surface: #f0f0f0;
+  --on-surface-variant: #a0a0a0;
+  --on-primary: #000000;
+
+  /* === Ghost Border === */
+  --ghost-border: rgba(255, 255, 255, 0.15);
+  --ghost-border-primary: rgba(255, 105, 0, 0.15);
+
+  /* === Status Colors === */
+  --status-online: #3ba55c;
+  --status-idle: #faa61a;
+  --status-dnd: #ed4245;
+  --status-offline: #747f8d;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface-lowest: var(--surface-lowest);
+  --color-surface-low: var(--surface-low);
+  --color-surface-high: var(--surface-high);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* === Base === */
+body {
+  background: var(--bg);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* === Liquid Glass Card === */
+.glass-card {
+  background: var(--surface-variant);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--ghost-border);
+  border-radius: 4px;
+}
+
+.glass-card-subtle {
+  background: rgba(26, 26, 26, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+/* === Sticker Element === */
+.sticker {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease;
+}
+.sticker:hover {
+  animation: sticker-wobble 0.4s ease;
+}
+
+/* === Jagged Edge (MAU MAKAN APA inspired) === */
+.jagged-edge-top {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpolygon fill='%23080808' points='0,12 10,0 20,12 30,0 40,12 50,0 60,12 70,0 80,12 90,0 100,12'/%3E%3C/svg%3E");
+  background-size: 60px 12px;
+  background-repeat: repeat-x;
+  background-position: top;
+  padding-top: 12px;
+}
+.jagged-edge-bottom {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpolygon fill='%23080808' points='0,0 10,12 20,0 30,12 40,0 50,12 60,0 70,12 80,0 90,12 100,0'/%3E%3C/svg%3E");
+  background-size: 60px 12px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  padding-bottom: 12px;
+}
+
+/* === Keyframes === */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitch-text {
+  0%, 100% {
+    text-shadow:
+      2px 0 var(--primary),
+      -2px 0 var(--tertiary);
+  }
+  25% {
+    text-shadow:
+      -2px -1px var(--secondary),
+      2px 1px var(--primary);
+  }
+  50% {
+    text-shadow:
+      1px 2px var(--tertiary),
+      -1px -2px var(--secondary);
+  }
+  75% {
+    text-shadow:
+      -1px 1px var(--primary),
+      1px -1px var(--tertiary);
+  }
+}
+
+@keyframes sticker-wobble {
+  0% { transform: rotate(var(--rotation, 0deg)); }
+  25% { transform: rotate(calc(var(--rotation, 0deg) + 4deg)); }
+  50% { transform: rotate(calc(var(--rotation, 0deg) - 3deg)); }
+  75% { transform: rotate(calc(var(--rotation, 0deg) + 2deg)); }
+  100% { transform: rotate(var(--rotation, 0deg)); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* === Utility === */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
